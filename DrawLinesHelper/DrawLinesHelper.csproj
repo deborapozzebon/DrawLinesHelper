@@ -67,6 +67,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\CutsCoordinates.cs" />
+    <Compile Include="Model\ModelData.cs" />
+    <Compile Include="ViewModel\ExecuteApplyChangesCommand.cs" />
+    <Compile Include="ViewModel\ModelDataViewModel.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -99,8 +102,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

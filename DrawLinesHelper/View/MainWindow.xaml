@@ -9,14 +9,27 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
     <Grid>
-        <Button Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5 5" Content="Load JSON" Click="btnOpenFile_Click"/>
-        <Button Width="100" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110 5" Content="Clear" Click="btnClearJson_Click"/>
-        <Button Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5 5" Content="Save Image" Click="btnSaveImage_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        
+        <Button Width="100" Grid.Row="0" Grid.Column="1" Height="25" HorizontalAlignment="Center" Content="Load JSON" Click="btnOpenFile_Click"/>
+        <Button Width="100" Grid.Row="1" Grid.Column="1" Height="25" HorizontalAlignment="Center" Content="Clear" Click="btnClearJson_Click"/>
+        <Button Width="100" Grid.Row="4" Grid.Column="1" Height="25" HorizontalAlignment="Center" Content="Save Image" Click="btnSaveImage_Click"/>
+        <Label Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Content="Line Thickness"/>
+        <Slider Name="SliderLineThickness" Value="2" Minimum="0.5" Maximum="10" Grid.Row="3" Grid.Column="1" TickFrequency="0.5" SmallChange="0.5" LargeChange="1" ValueChanged="SliderLineThickness_ValueChanged"/>
 
-        <Border BorderThickness="0.5" BorderBrush="Gray" Height="800" Width="1450" VerticalAlignment="Center" HorizontalAlignment="Center">
-            
-        <Canvas Height="750" Width="1450" Name="myCanvas" VerticalAlignment="Center" HorizontalAlignment="Center">
-        </Canvas>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="5" BorderThickness="0.5" BorderBrush="Gray" Height="900" Width="1450" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10">
+            <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="5" Height="850" Width="1450" Name="myCanvas" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
         </Border>
 
     </Grid>

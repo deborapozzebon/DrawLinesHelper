@@ -1,5 +1,6 @@
 ﻿using DrawLinesHelper.Model;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows;
@@ -12,9 +13,12 @@ namespace DrawLinesHelper.View
     public partial class MainWindow : Window
     {
         private string _json { get; set; }
+        private int _lineTickness { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new M
         }
 
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
@@ -36,7 +40,6 @@ namespace DrawLinesHelper.View
         {
             RenderTargetBitmap rtb = new RenderTargetBitmap((int)myCanvas.Width, (int)myCanvas.Height, 96d, 96d, PixelFormats.Default);
             rtb.Render(myCanvas);
-
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
@@ -73,6 +76,12 @@ namespace DrawLinesHelper.View
             var shapeLine = new Rectangle() { Height = 1219 / 2, Width = 2438 / 2, VerticalAlignment = VerticalAlignment.Bottom, Stroke = Brushes.Black };
 
             myCanvas.Children.Add(shapeLine);
+        }
+
+        private void SliderLineThickness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int newTickness = Convert.ToInt32(e.NewValue);
+
         }
     }
 }
